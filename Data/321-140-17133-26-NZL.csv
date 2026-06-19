@@ -1,0 +1,790 @@
+Berichtsjahr;Segment;Antriebsart;Anzahl
+2016;Minis;Benzin;230152
+2016;Minis;Diesel;3946
+2016;Minis;Elektro (BEV);954
+2016;Minis;Hybrid;1
+2016;Minis;Flüssiggas (LPG) (einschl. bivalent);749
+2016;Minis;Erdgas (CNG) (einschl. bivalent);1157
+2016;Kleinwagen;Benzin;420141
+2016;Kleinwagen;Diesel;51442
+2016;Kleinwagen;Elektro (BEV);4325
+2016;Kleinwagen;Hybrid;10117
+2016;Kleinwagen;Flüssiggas (LPG) (einschl. bivalent);251
+2016;Kleinwagen;Erdgas (CNG) (einschl. bivalent);17
+2016;Kompaktklasse;Benzin;489208
+2016;Kompaktklasse;Diesel;335166
+2016;Kompaktklasse;Elektro (BEV);2068
+2016;Kompaktklasse;Hybrid;17140
+2016;Kompaktklasse;Sonstige;6
+2016;Kompaktklasse;Flüssiggas (LPG) (einschl. bivalent);991
+2016;Kompaktklasse;Erdgas (CNG) (einschl. bivalent);1176
+2016;Mittelklasse;Benzin;112958
+2016;Mittelklasse;Diesel;310766
+2016;Mittelklasse;Hybrid;3686
+2016;Mittelklasse;Sonstige;1
+2016;Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);40
+2016;Mittelklasse;Erdgas (CNG) (einschl. bivalent);44
+2016;Obere Mittelklasse;Benzin;13668
+2016;Obere Mittelklasse;Diesel;102654
+2016;Obere Mittelklasse;Hybrid;481
+2016;Obere Mittelklasse;Erdgas (CNG) (einschl. bivalent);3
+2016;Oberklasse;Benzin;9457
+2016;Oberklasse;Diesel;15509
+2016;Oberklasse;Elektro (BEV);1474
+2016;Oberklasse;Hybrid;746
+2016;Oberklasse;Sonstige;1
+2016;SUVs;Benzin;223599
+2016;SUVs;Diesel;190095
+2016;SUVs;Elektro (BEV);430
+2016;SUVs;Hybrid;11063
+2016;SUVs;Sonstige;27
+2016;SUVs;Flüssiggas (LPG) (einschl. bivalent);589
+2016;Geländewagen;Benzin;64519
+2016;Geländewagen;Diesel;222189
+2016;Geländewagen;Hybrid;2733
+2016;Geländewagen;Sonstige;2
+2016;Geländewagen;Flüssiggas (LPG) (einschl. bivalent);22
+2016;Sportwagen;Benzin;38243
+2016;Sportwagen;Diesel;2955
+2016;Sportwagen;Hybrid;243
+2016;Sportwagen;Sonstige;2
+2016;Mini-Vans;Benzin;73480
+2016;Mini-Vans;Diesel;29061
+2016;Mini-Vans;Elektro (BEV);1821
+2016;Mini-Vans;Hybrid;71
+2016;Mini-Vans;Flüssiggas (LPG) (einschl. bivalent);201
+2016;Mini-Vans;Erdgas (CNG) (einschl. bivalent);80
+2016;Großraum-Vans;Benzin;38202
+2016;Großraum-Vans;Diesel;111847
+2016;Großraum-Vans;Hybrid;1006
+2016;Großraum-Vans;Sonstige;1
+2016;Großraum-Vans;Flüssiggas (LPG) (einschl. bivalent);78
+2016;Großraum-Vans;Erdgas (CNG) (einschl. bivalent);137
+2016;Utilities;Benzin;24388
+2016;Utilities;Diesel;125191
+2016;Utilities;Elektro (BEV);174
+2016;Utilities;Hybrid;1
+2016;Utilities;Sonstige;1
+2016;Utilities;Flüssiggas (LPG) (einschl. bivalent);25
+2016;Utilities;Erdgas (CNG) (einschl. bivalent);608
+2016;Wohnmobile;Benzin;172
+2016;Wohnmobile;Diesel;34954
+2016;Wohnmobile;Sonstige;3
+2016;Wohnmobile;Flüssiggas (LPG) (einschl. bivalent);5
+2016;Wohnmobile;Erdgas (CNG) (einschl. bivalent);1
+2016;Sonstige;Benzin;8104
+2016;Sonstige;Diesel;3821
+2016;Sonstige;Elektro (BEV);164
+2016;Sonstige;Hybrid;708
+2016;Sonstige;Sonstige;40
+2016;Sonstige;Flüssiggas (LPG) (einschl. bivalent);39
+2016;Sonstige;Erdgas (CNG) (einschl. bivalent);17
+2017;Minis;Benzin;224202
+2017;Minis;Diesel;1637
+2017;Minis;Elektro (BEV);4545
+2017;Minis;Flüssiggas (LPG) (einschl. bivalent);625
+2017;Minis;Erdgas (CNG) (einschl. bivalent);868
+2017;Kleinwagen;Benzin;442273
+2017;Kleinwagen;Diesel;33247
+2017;Kleinwagen;Elektro (BEV);7922
+2017;Kleinwagen;Hybrid;15618
+2017;Kleinwagen;Flüssiggas (LPG) (einschl. bivalent);219
+2017;Kleinwagen;Erdgas (CNG) (einschl. bivalent);21
+2017;Kompaktklasse;Benzin;513122
+2017;Kompaktklasse;Diesel;260516
+2017;Kompaktklasse;Elektro (BEV);5014
+2017;Kompaktklasse;Hybrid;21770
+2017;Kompaktklasse;Sonstige;5
+2017;Kompaktklasse;Flüssiggas (LPG) (einschl. bivalent);1159
+2017;Kompaktklasse;Erdgas (CNG) (einschl. bivalent);1413
+2017;Mittelklasse;Benzin;143761
+2017;Mittelklasse;Diesel;256094
+2017;Mittelklasse;Elektro (BEV);1
+2017;Mittelklasse;Hybrid;10166
+2017;Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);29
+2017;Mittelklasse;Erdgas (CNG) (einschl. bivalent);495
+2017;Obere Mittelklasse;Benzin;26635
+2017;Obere Mittelklasse;Diesel;108602
+2017;Obere Mittelklasse;Hybrid;2217
+2017;Obere Mittelklasse;Erdgas (CNG) (einschl. bivalent);1
+2017;Oberklasse;Benzin;10685
+2017;Oberklasse;Diesel;13217
+2017;Oberklasse;Elektro (BEV);2241
+2017;Oberklasse;Hybrid;2669
+2017;SUVs;Benzin;327473
+2017;SUVs;Diesel;164515
+2017;SUVs;Elektro (BEV);1092
+2017;SUVs;Hybrid;27561
+2017;SUVs;Sonstige;59
+2017;SUVs;Flüssiggas (LPG) (einschl. bivalent);960
+2017;Geländewagen;Benzin;91891
+2017;Geländewagen;Diesel;204228
+2017;Geländewagen;Hybrid;2761
+2017;Geländewagen;Sonstige;1
+2017;Geländewagen;Flüssiggas (LPG) (einschl. bivalent);11
+2017;Sportwagen;Benzin;36074
+2017;Sportwagen;Diesel;2591
+2017;Sportwagen;Hybrid;299
+2017;Sportwagen;Sonstige;1
+2017;Mini-Vans;Benzin;73310
+2017;Mini-Vans;Diesel;24205
+2017;Mini-Vans;Elektro (BEV);3475
+2017;Mini-Vans;Hybrid;129
+2017;Mini-Vans;Flüssiggas (LPG) (einschl. bivalent);493
+2017;Mini-Vans;Erdgas (CNG) (einschl. bivalent);69
+2017;Großraum-Vans;Benzin;51472
+2017;Großraum-Vans;Diesel;94654
+2017;Großraum-Vans;Hybrid;898
+2017;Großraum-Vans;Flüssiggas (LPG) (einschl. bivalent);96
+2017;Großraum-Vans;Erdgas (CNG) (einschl. bivalent);162
+2017;Utilities;Benzin;35831
+2017;Utilities;Diesel;129510
+2017;Utilities;Elektro (BEV);203
+2017;Utilities;Flüssiggas (LPG) (einschl. bivalent);776
+2017;Utilities;Erdgas (CNG) (einschl. bivalent);668
+2017;Wohnmobile;Benzin;268
+2017;Wohnmobile;Diesel;40291
+2017;Wohnmobile;Hybrid;1
+2017;Wohnmobile;Sonstige;4
+2017;Wohnmobile;Flüssiggas (LPG) (einschl. bivalent);3
+2017;Sonstige;Benzin;9491
+2017;Sonstige;Diesel;3469
+2017;Sonstige;Elektro (BEV);563
+2017;Sonstige;Hybrid;586
+2017;Sonstige;Sonstige;74
+2017;Sonstige;Flüssiggas (LPG) (einschl. bivalent);29
+2017;Sonstige;Erdgas (CNG) (einschl. bivalent);26
+2018;Minis;Benzin;231637
+2018;Minis;Diesel;1368
+2018;Minis;Elektro (BEV);5491
+2018;Minis;Hybrid;1
+2018;Minis;Flüssiggas (LPG) (einschl. bivalent);326
+2018;Minis;Erdgas (CNG) (einschl. bivalent);1526
+2018;Kleinwagen;Benzin;435340
+2018;Kleinwagen;Diesel;30917
+2018;Kleinwagen;Elektro (BEV);12727
+2018;Kleinwagen;Hybrid;18028
+2018;Kleinwagen;Flüssiggas (LPG) (einschl. bivalent);228
+2018;Kleinwagen;Erdgas (CNG) (einschl. bivalent);1292
+2018;Kompaktklasse;Benzin;524998
+2018;Kompaktklasse;Diesel;189794
+2018;Kompaktklasse;Elektro (BEV);10220
+2018;Kompaktklasse;Hybrid;23597
+2018;Kompaktklasse;Flüssiggas (LPG) (einschl. bivalent);1361
+2018;Kompaktklasse;Erdgas (CNG) (einschl. bivalent);5528
+2018;Mittelklasse;Benzin;141417
+2018;Mittelklasse;Diesel;206181
+2018;Mittelklasse;Hybrid;25644
+2018;Mittelklasse;Sonstige;1
+2018;Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);1
+2018;Mittelklasse;Erdgas (CNG) (einschl. bivalent);1367
+2018;Obere Mittelklasse;Benzin;29487
+2018;Obere Mittelklasse;Diesel;87037
+2018;Obere Mittelklasse;Elektro (BEV);1
+2018;Obere Mittelklasse;Hybrid;15052
+2018;Obere Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);6
+2018;Oberklasse;Benzin;9346
+2018;Oberklasse;Diesel;11057
+2018;Oberklasse;Elektro (BEV);1248
+2018;Oberklasse;Hybrid;10741
+2018;SUVs;Benzin;462413
+2018;SUVs;Diesel;137853
+2018;SUVs;Elektro (BEV);1268
+2018;SUVs;Hybrid;27699
+2018;SUVs;Sonstige;92
+2018;SUVs;Flüssiggas (LPG) (einschl. bivalent);678
+2018;SUVs;Erdgas (CNG) (einschl. bivalent);2
+2018;Geländewagen;Benzin;114980
+2018;Geländewagen;Diesel;182333
+2018;Geländewagen;Elektro (BEV);2
+2018;Geländewagen;Hybrid;6173
+2018;Geländewagen;Sonstige;1
+2018;Geländewagen;Flüssiggas (LPG) (einschl. bivalent);10
+2018;Sportwagen;Benzin;36765
+2018;Sportwagen;Diesel;2661
+2018;Sportwagen;Elektro (BEV);1
+2018;Sportwagen;Hybrid;1040
+2018;Sportwagen;Sonstige;1
+2018;Mini-Vans;Benzin;55592
+2018;Mini-Vans;Diesel;18210
+2018;Mini-Vans;Elektro (BEV);3372
+2018;Mini-Vans;Hybrid;76
+2018;Mini-Vans;Flüssiggas (LPG) (einschl. bivalent);564
+2018;Mini-Vans;Erdgas (CNG) (einschl. bivalent);6
+2018;Großraum-Vans;Benzin;50452
+2018;Großraum-Vans;Diesel;73372
+2018;Großraum-Vans;Hybrid;1352
+2018;Großraum-Vans;Sonstige;1
+2018;Großraum-Vans;Flüssiggas (LPG) (einschl. bivalent);80
+2018;Großraum-Vans;Erdgas (CNG) (einschl. bivalent);94
+2018;Utilities;Benzin;38224
+2018;Utilities;Diesel;120922
+2018;Utilities;Elektro (BEV);160
+2018;Utilities;Flüssiggas (LPG) (einschl. bivalent);1324
+2018;Utilities;Erdgas (CNG) (einschl. bivalent);981
+2018;Wohnmobile;Benzin;358
+2018;Wohnmobile;Diesel;46493
+2018;Wohnmobile;Elektro (BEV);1
+2018;Wohnmobile;Hybrid;1
+2018;Wohnmobile;Sonstige;3
+2018;Wohnmobile;Flüssiggas (LPG) (einschl. bivalent);3
+2018;Sonstige;Benzin;11691
+2018;Sonstige;Diesel;2932
+2018;Sonstige;Elektro (BEV);1571
+2018;Sonstige;Hybrid;854
+2018;Sonstige;Sonstige;62
+2018;Sonstige;Flüssiggas (LPG) (einschl. bivalent);82
+2018;Sonstige;Erdgas (CNG) (einschl. bivalent);8
+2019;Minis;Benzin;222227
+2019;Minis;Diesel;719
+2019;Minis;Elektro (BEV);6070
+2019;Minis;Flüssiggas (LPG) (einschl. bivalent);377
+2019;Minis;Erdgas (CNG) (einschl. bivalent);1102
+2019;Kleinwagen;Benzin;426571
+2019;Kleinwagen;Diesel;21825
+2019;Kleinwagen;Elektro (BEV);21418
+2019;Kleinwagen;Hybrid;14886
+2019;Kleinwagen;Flüssiggas (LPG) (einschl. bivalent);159
+2019;Kleinwagen;Erdgas (CNG) (einschl. bivalent);1032
+2019;Kompaktklasse;Benzin;494993
+2019;Kompaktklasse;Diesel;200104
+2019;Kompaktklasse;Elektro (BEV);11176
+2019;Kompaktklasse;Hybrid;26636
+2019;Kompaktklasse;Flüssiggas (LPG) (einschl. bivalent);2089
+2019;Kompaktklasse;Erdgas (CNG) (einschl. bivalent);2987
+2019;Mittelklasse;Benzin;105312
+2019;Mittelklasse;Diesel;213071
+2019;Mittelklasse;Elektro (BEV);9013
+2019;Mittelklasse;Hybrid;43495
+2019;Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);2
+2019;Mittelklasse;Erdgas (CNG) (einschl. bivalent);407
+2019;Obere Mittelklasse;Benzin;14248
+2019;Obere Mittelklasse;Diesel;57788
+2019;Obere Mittelklasse;Hybrid;59248
+2019;Obere Mittelklasse;Sonstige;1
+2019;Obere Mittelklasse;Erdgas (CNG) (einschl. bivalent);1
+2019;Oberklasse;Benzin;7595
+2019;Oberklasse;Diesel;8993
+2019;Oberklasse;Elektro (BEV);1012
+2019;Oberklasse;Hybrid;10777
+2019;Oberklasse;Sonstige;1
+2019;SUVs;Benzin;548936
+2019;SUVs;Diesel;153586
+2019;SUVs;Elektro (BEV);9767
+2019;SUVs;Hybrid;47001
+2019;SUVs;Sonstige;141
+2019;SUVs;Flüssiggas (LPG) (einschl. bivalent);2036
+2019;SUVs;Erdgas (CNG) (einschl. bivalent);1023
+2019;Geländewagen;Benzin;129784
+2019;Geländewagen;Diesel;204211
+2019;Geländewagen;Hybrid;31117
+2019;Geländewagen;Flüssiggas (LPG) (einschl. bivalent);9
+2019;Sportwagen;Benzin;38356
+2019;Sportwagen;Diesel;2469
+2019;Sportwagen;Hybrid;2886
+2019;Sportwagen;Sonstige;1
+2019;Mini-Vans;Benzin;62536
+2019;Mini-Vans;Diesel;18751
+2019;Mini-Vans;Elektro (BEV);1591
+2019;Mini-Vans;Hybrid;62
+2019;Mini-Vans;Flüssiggas (LPG) (einschl. bivalent);946
+2019;Mini-Vans;Erdgas (CNG) (einschl. bivalent);1
+2019;Großraum-Vans;Benzin;39970
+2019;Großraum-Vans;Diesel;79361
+2019;Großraum-Vans;Elektro (BEV);11
+2019;Großraum-Vans;Hybrid;1383
+2019;Großraum-Vans;Flüssiggas (LPG) (einschl. bivalent);1
+2019;Großraum-Vans;Erdgas (CNG) (einschl. bivalent);1
+2019;Utilities;Benzin;37882
+2019;Utilities;Diesel;136226
+2019;Utilities;Elektro (BEV);1179
+2019;Utilities;Hybrid;88
+2019;Utilities;Flüssiggas (LPG) (einschl. bivalent);1475
+2019;Utilities;Erdgas (CNG) (einschl. bivalent);1039
+2019;Wohnmobile;Benzin;314
+2019;Wohnmobile;Diesel;53591
+2019;Wohnmobile;Elektro (BEV);1
+2019;Wohnmobile;Hybrid;1
+2019;Wohnmobile;Sonstige;7
+2019;Wohnmobile;Flüssiggas (LPG) (einschl. bivalent);5
+2019;Wohnmobile;Erdgas (CNG) (einschl. bivalent);1
+2019;Sonstige;Benzin;8167
+2019;Sonstige;Diesel;2038
+2019;Sonstige;Elektro (BEV);2043
+2019;Sonstige;Hybrid;1670
+2019;Sonstige;Sonstige;73
+2019;Sonstige;Flüssiggas (LPG) (einschl. bivalent);157
+2019;Sonstige;Erdgas (CNG) (einschl. bivalent);29
+2020;Minis;Benzin;100240
+2020;Minis;Diesel;892
+2020;Minis;Elektro (BEV);31550
+2020;Minis;Hybrid;11756
+2020;Minis;Flüssiggas (LPG) (einschl. bivalent);200
+2020;Minis;Erdgas (CNG) (einschl. bivalent);389
+2020;Kleinwagen;Benzin;318105
+2020;Kleinwagen;Diesel;11914
+2020;Kleinwagen;Elektro (BEV);57974
+2020;Kleinwagen;Hybrid;51094
+2020;Kleinwagen;Flüssiggas (LPG) (einschl. bivalent);156
+2020;Kleinwagen;Erdgas (CNG) (einschl. bivalent);1191
+2020;Kompaktklasse;Benzin;313307
+2020;Kompaktklasse;Diesel;153578
+2020;Kompaktklasse;Elektro (BEV);38142
+2020;Kompaktklasse;Hybrid;87377
+2020;Kompaktklasse;Flüssiggas (LPG) (einschl. bivalent);2968
+2020;Kompaktklasse;Erdgas (CNG) (einschl. bivalent);2425
+2020;Mittelklasse;Benzin;67819
+2020;Mittelklasse;Diesel;129257
+2020;Mittelklasse;Elektro (BEV);16217
+2020;Mittelklasse;Hybrid;99397
+2020;Mittelklasse;Sonstige;1
+2020;Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);4
+2020;Mittelklasse;Erdgas (CNG) (einschl. bivalent);317
+2020;Obere Mittelklasse;Benzin;5003
+2020;Obere Mittelklasse;Diesel;24052
+2020;Obere Mittelklasse;Hybrid;67152
+2020;Obere Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);2
+2020;Oberklasse;Benzin;5049
+2020;Oberklasse;Diesel;4979
+2020;Oberklasse;Elektro (BEV);3980
+2020;Oberklasse;Hybrid;8884
+2020;Oberklasse;Sonstige;1
+2020;SUVs;Benzin;362032
+2020;SUVs;Diesel;108491
+2020;SUVs;Elektro (BEV);38628
+2020;SUVs;Hybrid;106245
+2020;SUVs;Sonstige;212
+2020;SUVs;Flüssiggas (LPG) (einschl. bivalent);2917
+2020;SUVs;Erdgas (CNG) (einschl. bivalent);2302
+2020;Geländewagen;Benzin;86754
+2020;Geländewagen;Diesel;134521
+2020;Geländewagen;Elektro (BEV);109
+2020;Geländewagen;Hybrid;85624
+2020;Geländewagen;Flüssiggas (LPG) (einschl. bivalent);8
+2020;Sportwagen;Benzin;28697
+2020;Sportwagen;Diesel;1565
+2020;Sportwagen;Hybrid;3277
+2020;Sportwagen;Sonstige;3
+2020;Mini-Vans;Benzin;21515
+2020;Mini-Vans;Diesel;10837
+2020;Mini-Vans;Elektro (BEV);2364
+2020;Mini-Vans;Hybrid;3217
+2020;Mini-Vans;Flüssiggas (LPG) (einschl. bivalent);198
+2020;Großraum-Vans;Benzin;16513
+2020;Großraum-Vans;Diesel;53309
+2020;Großraum-Vans;Elektro (BEV);928
+2020;Großraum-Vans;Hybrid;1331
+2020;Großraum-Vans;Erdgas (CNG) (einschl. bivalent);8
+2020;Utilities;Benzin;30134
+2020;Utilities;Diesel;109355
+2020;Utilities;Elektro (BEV);1425
+2020;Utilities;Hybrid;745
+2020;Utilities;Sonstige;3
+2020;Utilities;Flüssiggas (LPG) (einschl. bivalent);1
+2020;Utilities;Erdgas (CNG) (einschl. bivalent);522
+2020;Wohnmobile;Benzin;331
+2020;Wohnmobile;Diesel;75873
+2020;Wohnmobile;Hybrid;3
+2020;Wohnmobile;Sonstige;9
+2020;Wohnmobile;Flüssiggas (LPG) (einschl. bivalent);9
+2020;Sonstige;Benzin;6224
+2020;Sonstige;Diesel;1273
+2020;Sonstige;Elektro (BEV);2846
+2020;Sonstige;Hybrid;1762
+2020;Sonstige;Sonstige;101
+2020;Sonstige;Flüssiggas (LPG) (einschl. bivalent);80
+2020;Sonstige;Erdgas (CNG) (einschl. bivalent);5
+2021;Minis;Benzin;68461
+2021;Minis;Diesel;634
+2021;Minis;Elektro (BEV);79832
+2021;Minis;Hybrid;19651
+2021;Minis;Flüssiggas (LPG) (einschl. bivalent);103
+2021;Minis;Erdgas (CNG) (einschl. bivalent);253
+2021;Kleinwagen;Benzin;226393
+2021;Kleinwagen;Diesel;5188
+2021;Kleinwagen;Elektro (BEV);74553
+2021;Kleinwagen;Hybrid;67252
+2021;Kleinwagen;Sonstige;13
+2021;Kleinwagen;Flüssiggas (LPG) (einschl. bivalent);220
+2021;Kleinwagen;Erdgas (CNG) (einschl. bivalent);1103
+2021;Kompaktklasse;Benzin;184402
+2021;Kompaktklasse;Diesel;101517
+2021;Kompaktklasse;Elektro (BEV);37822
+2021;Kompaktklasse;Hybrid;129513
+2021;Kompaktklasse;Sonstige;2
+2021;Kompaktklasse;Flüssiggas (LPG) (einschl. bivalent);6077
+2021;Kompaktklasse;Erdgas (CNG) (einschl. bivalent);644
+2021;Mittelklasse;Benzin;44495
+2021;Mittelklasse;Diesel;69277
+2021;Mittelklasse;Elektro (BEV);38073
+2021;Mittelklasse;Hybrid;117369
+2021;Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);4
+2021;Mittelklasse;Erdgas (CNG) (einschl. bivalent);122
+2021;Obere Mittelklasse;Benzin;2718
+2021;Obere Mittelklasse;Diesel;9810
+2021;Obere Mittelklasse;Hybrid;64061
+2021;Obere Mittelklasse;Sonstige;308
+2021;Oberklasse;Benzin;3425
+2021;Oberklasse;Diesel;3249
+2021;Oberklasse;Elektro (BEV);7223
+2021;Oberklasse;Hybrid;10928
+2021;Oberklasse;Sonstige;1
+2021;SUVs;Benzin;308303
+2021;SUVs;Diesel;66308
+2021;SUVs;Elektro (BEV);106535
+2021;SUVs;Hybrid;180521
+2021;SUVs;Sonstige;155
+2021;SUVs;Flüssiggas (LPG) (einschl. bivalent);3522
+2021;SUVs;Erdgas (CNG) (einschl. bivalent);1752
+2021;Geländewagen;Benzin;63776
+2021;Geländewagen;Diesel;69056
+2021;Geländewagen;Elektro (BEV);1071
+2021;Geländewagen;Hybrid;146849
+2021;Geländewagen;Flüssiggas (LPG) (einschl. bivalent);1
+2021;Sportwagen;Benzin;22713
+2021;Sportwagen;Diesel;921
+2021;Sportwagen;Elektro (BEV);4
+2021;Sportwagen;Hybrid;3016
+2021;Mini-Vans;Benzin;12514
+2021;Mini-Vans;Diesel;4336
+2021;Mini-Vans;Elektro (BEV);2536
+2021;Mini-Vans;Hybrid;7516
+2021;Mini-Vans;Flüssiggas (LPG) (einschl. bivalent);42
+2021;Großraum-Vans;Benzin;13514
+2021;Großraum-Vans;Diesel;29524
+2021;Großraum-Vans;Elektro (BEV);1568
+2021;Großraum-Vans;Hybrid;1688
+2021;Utilities;Benzin;14427
+2021;Utilities;Diesel;84327
+2021;Utilities;Elektro (BEV);2096
+2021;Utilities;Hybrid;1972
+2021;Utilities;Sonstige;1
+2021;Utilities;Erdgas (CNG) (einschl. bivalent);41
+2021;Wohnmobile;Benzin;350
+2021;Wohnmobile;Diesel;79227
+2021;Wohnmobile;Hybrid;2
+2021;Wohnmobile;Sonstige;7
+2021;Wohnmobile;Flüssiggas (LPG) (einschl. bivalent);5
+2021;Wohnmobile;Erdgas (CNG) (einschl. bivalent);1
+2021;Sonstige;Benzin;7097
+2021;Sonstige;Diesel;1072
+2021;Sonstige;Elektro (BEV);4648
+2021;Sonstige;Hybrid;4250
+2021;Sonstige;Sonstige;28
+2021;Sonstige;Flüssiggas (LPG) (einschl. bivalent);144
+2022;Minis;Benzin;46907
+2022;Minis;Diesel;98
+2022;Minis;Elektro (BEV);75811
+2022;Minis;Hybrid;21509
+2022;Minis;Flüssiggas (LPG) (einschl. bivalent);74
+2022;Minis;Erdgas (CNG) (einschl. bivalent);147
+2022;Kleinwagen;Benzin;193840
+2022;Kleinwagen;Diesel;4406
+2022;Kleinwagen;Elektro (BEV);59954
+2022;Kleinwagen;Hybrid;70378
+2022;Kleinwagen;Sonstige;7
+2022;Kleinwagen;Flüssiggas (LPG) (einschl. bivalent);134
+2022;Kleinwagen;Erdgas (CNG) (einschl. bivalent);457
+2022;Kompaktklasse;Benzin;150238
+2022;Kompaktklasse;Diesel;91759
+2022;Kompaktklasse;Elektro (BEV);54593
+2022;Kompaktklasse;Hybrid;117585
+2022;Kompaktklasse;Sonstige;6
+2022;Kompaktklasse;Flüssiggas (LPG) (einschl. bivalent);7705
+2022;Kompaktklasse;Erdgas (CNG) (einschl. bivalent);768
+2022;Mittelklasse;Benzin;43074
+2022;Mittelklasse;Diesel;55102
+2022;Mittelklasse;Elektro (BEV);47341
+2022;Mittelklasse;Hybrid;124520
+2022;Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);1
+2022;Mittelklasse;Erdgas (CNG) (einschl. bivalent);78
+2022;Obere Mittelklasse;Benzin;2435
+2022;Obere Mittelklasse;Diesel;4883
+2022;Obere Mittelklasse;Elektro (BEV);3277
+2022;Obere Mittelklasse;Hybrid;65671
+2022;Obere Mittelklasse;Sonstige;337
+2022;Oberklasse;Benzin;3162
+2022;Oberklasse;Diesel;2063
+2022;Oberklasse;Elektro (BEV);10226
+2022;Oberklasse;Hybrid;10826
+2022;SUVs;Benzin;284847
+2022;SUVs;Diesel;65401
+2022;SUVs;Elektro (BEV);196836
+2022;SUVs;Hybrid;227777
+2022;SUVs;Sonstige;448
+2022;SUVs;Flüssiggas (LPG) (einschl. bivalent);2435
+2022;SUVs;Erdgas (CNG) (einschl. bivalent);383
+2022;Geländewagen;Benzin;59209
+2022;Geländewagen;Diesel;66571
+2022;Geländewagen;Elektro (BEV);7366
+2022;Geländewagen;Hybrid;165773
+2022;Geländewagen;Sonstige;26
+2022;Geländewagen;Flüssiggas (LPG) (einschl. bivalent);2
+2022;Sportwagen;Benzin;22834
+2022;Sportwagen;Diesel;539
+2022;Sportwagen;Elektro (BEV);4
+2022;Sportwagen;Hybrid;3120
+2022;Mini-Vans;Benzin;9102
+2022;Mini-Vans;Diesel;3843
+2022;Mini-Vans;Elektro (BEV);1223
+2022;Mini-Vans;Hybrid;8845
+2022;Großraum-Vans;Benzin;19108
+2022;Großraum-Vans;Diesel;31949
+2022;Großraum-Vans;Elektro (BEV);1607
+2022;Großraum-Vans;Hybrid;1534
+2022;Großraum-Vans;Flüssiggas (LPG) (einschl. bivalent);4535
+2022;Utilities;Benzin;19406
+2022;Utilities;Diesel;78732
+2022;Utilities;Elektro (BEV);5137
+2022;Utilities;Hybrid;4449
+2022;Utilities;Sonstige;1
+2022;Utilities;Erdgas (CNG) (einschl. bivalent);13
+2022;Wohnmobile;Benzin;475
+2022;Wohnmobile;Diesel;65050
+2022;Wohnmobile;Elektro (BEV);40
+2022;Wohnmobile;Hybrid;5
+2022;Wohnmobile;Sonstige;23
+2022;Wohnmobile;Flüssiggas (LPG) (einschl. bivalent);2
+2022;Sonstige;Benzin;8808
+2022;Sonstige;Diesel;1878
+2022;Sonstige;Elektro (BEV);7144
+2022;Sonstige;Hybrid;5329
+2022;Sonstige;Sonstige;58
+2022;Sonstige;Flüssiggas (LPG) (einschl. bivalent);118
+2023;Minis;Benzin;54389
+2023;Minis;Diesel;1
+2023;Minis;Elektro (BEV);57210
+2023;Minis;Hybrid;29099
+2023;Minis;Flüssiggas (LPG) (einschl. bivalent);2
+2023;Minis;Erdgas (CNG) (einschl. bivalent);184
+2023;Kleinwagen;Benzin;219861
+2023;Kleinwagen;Diesel;2961
+2023;Kleinwagen;Elektro (BEV);37288
+2023;Kleinwagen;Hybrid;77089
+2023;Kleinwagen;Flüssiggas (LPG) (einschl. bivalent);67
+2023;Kleinwagen;Erdgas (CNG) (einschl. bivalent);369
+2023;Kompaktklasse;Benzin;168097
+2023;Kompaktklasse;Diesel;103013
+2023;Kompaktklasse;Elektro (BEV);69677
+2023;Kompaktklasse;Hybrid;118285
+2023;Kompaktklasse;Flüssiggas (LPG) (einschl. bivalent);5595
+2023;Kompaktklasse;Erdgas (CNG) (einschl. bivalent);394
+2023;Mittelklasse;Benzin;55160
+2023;Mittelklasse;Diesel;65078
+2023;Mittelklasse;Elektro (BEV);43116
+2023;Mittelklasse;Hybrid;136637
+2023;Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);3
+2023;Mittelklasse;Erdgas (CNG) (einschl. bivalent);65
+2023;Obere Mittelklasse;Benzin;2591
+2023;Obere Mittelklasse;Diesel;3349
+2023;Obere Mittelklasse;Elektro (BEV);10082
+2023;Obere Mittelklasse;Hybrid;69833
+2023;Obere Mittelklasse;Sonstige;166
+2023;Oberklasse;Benzin;2760
+2023;Oberklasse;Diesel;1751
+2023;Oberklasse;Elektro (BEV);13066
+2023;Oberklasse;Hybrid;12099
+2023;Oberklasse;Sonstige;1
+2023;SUVs;Benzin;316578
+2023;SUVs;Diesel;62217
+2023;SUVs;Elektro (BEV);253914
+2023;SUVs;Hybrid;220978
+2023;SUVs;Sonstige;72
+2023;SUVs;Flüssiggas (LPG) (einschl. bivalent);1678
+2023;SUVs;Erdgas (CNG) (einschl. bivalent);241
+2023;Geländewagen;Benzin;75494
+2023;Geländewagen;Diesel;75322
+2023;Geländewagen;Elektro (BEV);21788
+2023;Geländewagen;Hybrid;151108
+2023;Geländewagen;Sonstige;31
+2023;Geländewagen;Flüssiggas (LPG) (einschl. bivalent);6
+2023;Sportwagen;Benzin;24758
+2023;Sportwagen;Diesel;582
+2023;Sportwagen;Elektro (BEV);3
+2023;Sportwagen;Hybrid;4518
+2023;Mini-Vans;Benzin;6406
+2023;Mini-Vans;Diesel;3429
+2023;Mini-Vans;Elektro (BEV);556
+2023;Mini-Vans;Hybrid;8455
+2023;Großraum-Vans;Benzin;17695
+2023;Großraum-Vans;Diesel;29029
+2023;Großraum-Vans;Elektro (BEV);1672
+2023;Großraum-Vans;Hybrid;5307
+2023;Großraum-Vans;Flüssiggas (LPG) (einschl. bivalent);5602
+2023;Utilities;Benzin;24130
+2023;Utilities;Diesel;71815
+2023;Utilities;Elektro (BEV);11522
+2023;Utilities;Hybrid;3330
+2023;Utilities;Erdgas (CNG) (einschl. bivalent);69
+2023;Wohnmobile;Benzin;388
+2023;Wohnmobile;Diesel;66968
+2023;Wohnmobile;Elektro (BEV);46
+2023;Wohnmobile;Hybrid;19
+2023;Wohnmobile;Sonstige;18
+2023;Wohnmobile;Flüssiggas (LPG) (einschl. bivalent);8
+2023;Wohnmobile;Erdgas (CNG) (einschl. bivalent);4
+2023;Sonstige;Benzin;10353
+2023;Sonstige;Diesel;1066
+2023;Sonstige;Elektro (BEV);4279
+2023;Sonstige;Hybrid;3547
+2023;Sonstige;Sonstige;83
+2023;Sonstige;Flüssiggas (LPG) (einschl. bivalent);186
+2023;Sonstige;Erdgas (CNG) (einschl. bivalent);1
+2024;Minis;Benzin;48094
+2024;Minis;Diesel;1
+2024;Minis;Elektro (BEV);16330
+2024;Minis;Hybrid;15891
+2024;Minis;Flüssiggas (LPG) (einschl. bivalent);1
+2024;Minis;Erdgas (CNG) (einschl. bivalent);2
+2024;Kleinwagen;Benzin;226079
+2024;Kleinwagen;Diesel;1108
+2024;Kleinwagen;Elektro (BEV);16107
+2024;Kleinwagen;Hybrid;93463
+2024;Kleinwagen;Flüssiggas (LPG) (einschl. bivalent);278
+2024;Kleinwagen;Erdgas (CNG) (einschl. bivalent);10
+2024;Kompaktklasse;Benzin;207231
+2024;Kompaktklasse;Diesel;119893
+2024;Kompaktklasse;Elektro (BEV);55444
+2024;Kompaktklasse;Hybrid;137379
+2024;Kompaktklasse;Sonstige;4
+2024;Kompaktklasse;Flüssiggas (LPG) (einschl. bivalent);6550
+2024;Kompaktklasse;Erdgas (CNG) (einschl. bivalent);18
+2024;Mittelklasse;Benzin;42617
+2024;Mittelklasse;Diesel;52595
+2024;Mittelklasse;Elektro (BEV);23719
+2024;Mittelklasse;Hybrid;134783
+2024;Mittelklasse;Sonstige;15
+2024;Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);2
+2024;Mittelklasse;Erdgas (CNG) (einschl. bivalent);1
+2024;Obere Mittelklasse;Benzin;1351
+2024;Obere Mittelklasse;Diesel;279
+2024;Obere Mittelklasse;Elektro (BEV);31498
+2024;Obere Mittelklasse;Hybrid;78972
+2024;Obere Mittelklasse;Sonstige;148
+2024;Oberklasse;Benzin;2304
+2024;Oberklasse;Diesel;94
+2024;Oberklasse;Elektro (BEV);9693
+2024;Oberklasse;Hybrid;9822
+2024;SUVs;Benzin;338952
+2024;SUVs;Diesel;49875
+2024;SUVs;Elektro (BEV);195382
+2024;SUVs;Hybrid;263558
+2024;SUVs;Sonstige;12
+2024;SUVs;Flüssiggas (LPG) (einschl. bivalent);2027
+2024;SUVs;Erdgas (CNG) (einschl. bivalent);9
+2024;Geländewagen;Benzin;46739
+2024;Geländewagen;Diesel;71231
+2024;Geländewagen;Elektro (BEV);15489
+2024;Geländewagen;Hybrid;185034
+2024;Geländewagen;Sonstige;10
+2024;Geländewagen;Flüssiggas (LPG) (einschl. bivalent);4
+2024;Sportwagen;Benzin;22209
+2024;Sportwagen;Diesel;24
+2024;Sportwagen;Elektro (BEV);30
+2024;Sportwagen;Hybrid;2459
+2024;Mini-Vans;Benzin;2976
+2024;Mini-Vans;Diesel;1892
+2024;Mini-Vans;Elektro (BEV);2737
+2024;Mini-Vans;Hybrid;13452
+2024;Großraum-Vans;Benzin;16729
+2024;Großraum-Vans;Diesel;30753
+2024;Großraum-Vans;Elektro (BEV);2495
+2024;Großraum-Vans;Hybrid;8498
+2024;Großraum-Vans;Flüssiggas (LPG) (einschl. bivalent);4647
+2024;Utilities;Benzin;25611
+2024;Utilities;Diesel;81354
+2024;Utilities;Elektro (BEV);7956
+2024;Utilities;Hybrid;1579
+2024;Utilities;Sonstige;4
+2024;Utilities;Erdgas (CNG) (einschl. bivalent);95
+2024;Wohnmobile;Benzin;348
+2024;Wohnmobile;Diesel;73084
+2024;Wohnmobile;Elektro (BEV);23
+2024;Wohnmobile;Hybrid;15
+2024;Wohnmobile;Sonstige;22
+2024;Wohnmobile;Flüssiggas (LPG) (einschl. bivalent);2
+2024;Wohnmobile;Erdgas (CNG) (einschl. bivalent);2
+2024;Sonstige;Benzin;10708
+2024;Sonstige;Diesel;1078
+2024;Sonstige;Elektro (BEV);3706
+2024;Sonstige;Hybrid;2493
+2024;Sonstige;Sonstige;52
+2024;Sonstige;Flüssiggas (LPG) (einschl. bivalent);200
+2025;Minis;Benzin;43757
+2025;Minis;Elektro (BEV);21121
+2025;Minis;Hybrid;2153
+2025;Minis;Flüssiggas (LPG) (einschl. bivalent);1
+2025;Kleinwagen;Benzin;184977
+2025;Kleinwagen;Diesel;49
+2025;Kleinwagen;Elektro (BEV);57965
+2025;Kleinwagen;Hybrid;94022
+2025;Kleinwagen;Sonstige;7
+2025;Kleinwagen;Flüssiggas (LPG) (einschl. bivalent);422
+2025;Kompaktklasse;Benzin;152233
+2025;Kompaktklasse;Diesel;78302
+2025;Kompaktklasse;Elektro (BEV);62837
+2025;Kompaktklasse;Hybrid;177829
+2025;Kompaktklasse;Sonstige;4
+2025;Kompaktklasse;Flüssiggas (LPG) (einschl. bivalent);5273
+2025;Kompaktklasse;Erdgas (CNG) (einschl. bivalent);2
+2025;Mittelklasse;Benzin;32227
+2025;Mittelklasse;Diesel;40917
+2025;Mittelklasse;Elektro (BEV);32162
+2025;Mittelklasse;Hybrid;121689
+2025;Mittelklasse;Sonstige;1
+2025;Obere Mittelklasse;Benzin;1855
+2025;Obere Mittelklasse;Diesel;33
+2025;Obere Mittelklasse;Elektro (BEV);64354
+2025;Obere Mittelklasse;Hybrid;87795
+2025;Obere Mittelklasse;Sonstige;38
+2025;Obere Mittelklasse;Flüssiggas (LPG) (einschl. bivalent);2
+2025;Oberklasse;Benzin;1484
+2025;Oberklasse;Diesel;1
+2025;Oberklasse;Elektro (BEV);6856
+2025;Oberklasse;Hybrid;8476
+2025;Oberklasse;Sonstige;40
+2025;SUVs;Benzin;273711
+2025;SUVs;Diesel;45003
+2025;SUVs;Elektro (BEV);263196
+2025;SUVs;Hybrid;366503
+2025;SUVs;Sonstige;3
+2025;SUVs;Flüssiggas (LPG) (einschl. bivalent);2479
+2025;Geländewagen;Benzin;28150
+2025;Geländewagen;Diesel;50588
+2025;Geländewagen;Elektro (BEV);11978
+2025;Geländewagen;Hybrid;220318
+2025;Geländewagen;Sonstige;18
+2025;Geländewagen;Flüssiggas (LPG) (einschl. bivalent);9
+2025;Sportwagen;Benzin;13548
+2025;Sportwagen;Elektro (BEV);461
+2025;Sportwagen;Hybrid;5158
+2025;Sportwagen;Sonstige;1
+2025;Mini-Vans;Benzin;4
+2025;Mini-Vans;Diesel;1477
+2025;Mini-Vans;Elektro (BEV);3040
+2025;Mini-Vans;Hybrid;16043
+2025;Großraum-Vans;Benzin;13220
+2025;Großraum-Vans;Diesel;24706
+2025;Großraum-Vans;Elektro (BEV);2393
+2025;Großraum-Vans;Hybrid;9970
+2025;Großraum-Vans;Sonstige;3
+2025;Großraum-Vans;Flüssiggas (LPG) (einschl. bivalent);3733
+2025;Utilities;Benzin;22600
+2025;Utilities;Diesel;82733
+2025;Utilities;Elektro (BEV);14473
+2025;Utilities;Hybrid;14630
+2025;Utilities;Sonstige;2
+2025;Utilities;Flüssiggas (LPG) (einschl. bivalent);1
+2025;Utilities;Erdgas (CNG) (einschl. bivalent);1
+2025;Wohnmobile;Benzin;552
+2025;Wohnmobile;Diesel;70814
+2025;Wohnmobile;Elektro (BEV);48
+2025;Wohnmobile;Hybrid;107
+2025;Wohnmobile;Sonstige;48
+2025;Wohnmobile;Flüssiggas (LPG) (einschl. bivalent);6
+2025;Sonstige;Benzin;9323
+2025;Sonstige;Diesel;399
+2025;Sonstige;Elektro (BEV);4258
+2025;Sonstige;Hybrid;2816
+2025;Sonstige;Sonstige;30
+2025;Sonstige;Flüssiggas (LPG) (einschl. bivalent);153
