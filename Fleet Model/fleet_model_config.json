@@ -1,0 +1,71 @@
+{
+  "data_dir": "../Data",
+  "results_dir": "Results",
+  "input_files": {
+    "abs": "321-140-17133-26-ABS.csv",
+    "bestand": "321-140-17133-26-Bestand.csv",
+    "nzl": "321-140-17133-26-NZL.csv"
+  },
+  "csv": {
+    "separator": ";",
+    "encoding": "latin1"
+  },
+  "years": {
+    "start_year": 2025,
+    "end_year": 2050
+  },
+  "fleet_target": {
+    "percent_change": 15.0,
+    "method": "growth"
+  },
+  "calibration": {
+    "years": 5,
+    "age_bin_width": 5,
+    "max_reentry_age": 24,
+    "max_hazard_rate": 1.0,
+    "max_reentry_rate": 0.9
+  },
+  "policies": {
+    "scenarios": [
+      "baseline",
+      "verbrenneraus",
+      "diesel_fahrverbot",
+      "abwrackpraemie"
+    ],
+    "ice_phaseout_start_year": 2026,
+    "ice_phaseout_year": 2035,
+    "diesel_ban_year": 2032,
+    "scrappage_hazard_multiplier": 3.0,
+    "scrappage_target_patterns": [
+      "diesel",
+      "benzin"
+    ],
+    "ice_patterns": [
+      "benzin",
+      "diesel",
+      "hybrid",
+      "plug",
+      "phev",
+      "verbren"
+    ],
+    "non_ice_patterns": [
+      "elekt",
+      "bev",
+      "fcev",
+      "wasserstoff"
+    ],
+    "diesel_patterns": [
+      "diesel"
+    ]
+  },
+  "fleet_size_scenarios": {
+    "enabled": true,
+    "policy_mode": "baseline",
+    "target_method": "linear",
+    "changes_percent": {
+      "fleet_plus_5": 5.0,
+      "fleet_plus_10": 10.0,
+      "fleet_plus_15": 15.0
+    }
+  }
+}
