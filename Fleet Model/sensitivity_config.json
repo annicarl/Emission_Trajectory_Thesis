@@ -1,0 +1,31 @@
+{
+  "scenario": "baseline",
+  "target_year": 2050,
+  "default_relative_variation": 0.10,
+  "output_directory": "Results/Sensitivity_Analysis",
+  "save_pdf": false,
+  "top_n_plots": 15,
+  "max_parallel_processes": 1,
+  "parameter_rules": {
+    "config:fleet_target.percent_change": {"enabled": true, "variation_type": "relative", "lower": -0.10, "upper": 0.10},
+    "lca:*": {"enabled": true, "variation_type": "relative", "lower": -0.10, "upper": 0.10},
+    "lca:Battery_capacity:*": {"enabled": true, "note": "Currently no battery-production intensity in the source data; expected zero effect"}
+  },
+  "protected_json_paths": [
+    "data_dir", "results_dir", "input_files", "csv", "years", "policies.scenarios",
+    "calibration.years", "calibration.age_bin_width", "calibration.max_reentry_age",
+    "fleet_size_scenarios.changes_percent"
+  ],
+  "plausibility": {
+    "nonnegative_name_patterns": ["emission", "consumption", "capacity", "life", "km", "rate", "multiplier"],
+    "share_name_patterns": ["share", "rate", "quote", "anteil"],
+    "share_upper_bound": 1.0
+  },
+  "global_sensitivity": {
+    "enabled": false,
+    "method": "latin_hypercube",
+    "number_of_runs": 500,
+    "random_seed": 42,
+    "parameters": []
+  }
+}
