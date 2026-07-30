@@ -9,7 +9,7 @@
   "parameter_rules": {
     "config:fleet_target.percent_change": {"enabled": true, "variation_type": "relative", "lower": -0.10, "upper": 0.10},
     "lca:*": {"enabled": true, "variation_type": "relative", "lower": -0.10, "upper": 0.10},
-    "lca:Battery_capacity:*": {"enabled": true, "note": "Currently no battery-production intensity in the source data; expected zero effect"}
+    "lca:Battery_capacity:*": {"enabled": true, "note": "Battery capacity scales BEV battery-production emissions"}
   },
   "protected_json_paths": [
     "data_dir", "results_dir", "input_files", "csv", "years", "policies.scenarios",

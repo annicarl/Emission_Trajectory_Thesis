@@ -114,7 +114,8 @@ def discover_parameters(model_config: dict, lca: pd.DataFrame, sens: dict) -> pd
         pid = f"lca:{item.Parameter}:{item.vehicle_type}"
         rule = rule_for(pid, rules)
         low, high = bounds(float(item.value), rule, default)
-        phase_map = {"Vehicle_production": "vehicle_production", "Battery_capacity": "battery_production",
+        phase_map = {"Vehicle_production": "vehicle_production",
+                     "Battery_production": "battery_production", "Battery_capacity": "battery_production",
                      "Consumption": "use/energy_supply", "TTW": "use", "Maintenance": "use",
                      "WTT": "energy_supply", "Emissions_electricity": "energy_supply", "End_of_life": "end_of_life"}
         rows.append(dict(parameter_id=pid, parameter_name=item.Parameter, source="LCA_Emissions_Python.csv",

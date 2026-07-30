@@ -122,12 +122,30 @@ def calculate_emissions(activity: dict[str, pd.DataFrame], lca_wide: pd.DataFram
     prod["emissions_tco2e"] = prod["neue_fahrzeuge"] * prod.get("Vehicle_production", 0).fillna(0)
     parts.append(prod[base_cols])
 
-    # No battery-production intensity exists in the supplied LCA file. Keep an
-    # explicit zero phase; Battery_capacity consequently has zero sensitivity.
-    battery = prod[base_cols].copy()
+    # Battery production applies only to newly registered BEVs. The source
+    # factors are kgCO2e/kWh and kWh, hence the division by 1,000 to tCO2e.
+    bev_prod = prod["drivetrain_group"].eq("BEV")
+    required_battery_params = ["Battery_production", "Battery_capacity"]
+    missing_columns = [name for name in required_battery_params if name not in prod.columns]
+    if missing_columns and bev_prod.any():
+        raise ValueError(f"LCA data lacks BEV battery parameters: {missing_columns}")
+    if bev_prod.any():
+        missing_values = prod.loc[bev_prod, required_battery_params].isna().any(axis=1)
+        if missing_values.any():
+            examples = (prod.loc[bev_prod & missing_values,
+                        ["drivetrain_group", "size_class"]]
+                        .drop_duplicates().to_dict("records"))
+            raise ValueError(f"Missing battery-production parameters for BEVs: {examples}")
+
+    battery = prod.copy()
     battery["phase"] = "battery_production"
-    battery["emissions_tco2e"] = 0.0
-    parts.append(battery)
+    battery["emissions_tco2e"] = np.where(
+        bev_prod,
+        battery["neue_fahrzeuge"] * battery["Battery_production"]
+        * battery["Battery_capacity"] / 1_000,
+        0.0,
+    )
+    parts.append(battery[base_cols])
 
     use = joined("stock")
     for name in ["Consumption", "WTT", "TTW", "Emissions_electricity", "Maintenance"]:
@@ -170,6 +188,9 @@ def summarize(emissions: pd.DataFrame, start_year: int, end_year: int, target_ye
     total = float(annual.sum())
     return {
         "cumulative_total_tco2e": total,
+        "production_total_tco2e": float(
+            by_phase["vehicle_production"] + by_phase["battery_production"]
+        ),
         "target_year_emissions_tco2e": float(annual.get(target_year, 0.0)),
         "peak_annual_emissions_tco2e": float(annual.max()) if len(annual) else 0.0,
         "peak_year": int(annual.idxmax()) if len(annual) else None,
@@ -184,4 +205,3 @@ def infer_unit(parameter: str, explanation: str) -> str:
         return match.group(1)
     defaults = {"Battery_capacity": "kWh", "End_of_life": "tCO2e/vehicle"}
     return defaults.get(parameter, "unknown")
-
