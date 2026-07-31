@@ -1,5 +1,5 @@
 {
-  "scenario": "baseline",
+  "scenario": "baseline_ev_growth",
   "target_year": 2050,
   "default_relative_variation": 0.10,
   "output_directory": "Results/Sensitivity_Analysis",

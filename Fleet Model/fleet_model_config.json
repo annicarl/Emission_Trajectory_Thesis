@@ -27,19 +27,42 @@
   },
   "policies": {
     "scenarios": [
-      "baseline",
-      "verbrenneraus",
       "diesel_fahrverbot",
       "abwrackpraemie"
     ],
-    "ice_phaseout_start_year": 2026,
-    "ice_phaseout_year": 2035,
+    "bev_growth_reference_scenario": "baseline_ev_growth",
     "diesel_ban_year": 2032,
-    "scrappage_hazard_multiplier": 3.0,
+    "scrappage_hazard_multiplier": 5.0,
+    "scrappage_active_years": [
+      2028,
+      2029,
+      2030
+    ],
     "scrappage_target_patterns": [
       "diesel",
       "benzin"
     ],
+    "bev_patterns": [
+      "elektro (bev)"
+    ],
+    "bev_target_scenarios": {
+      "verbrenneraus": {
+        "2025": 19.159291,
+        "2035": 100.0
+      },
+      "verbrenneraus_light": {
+        "2025": 19.159291,
+        "2035": 90.0
+      },
+      "baseline_ev_growth": {
+        "2025": 19.159291,
+        "2030": 28.130653,
+        "2035": 37.102016,
+        "2040": 46.073378,
+        "2045": 55.044741,
+        "2050": 64.016103
+      }
+    },
     "ice_patterns": [
       "benzin",
       "diesel",
@@ -58,9 +81,16 @@
       "diesel"
     ]
   },
+  "excluded_drive_patterns": [
+    "erdgas",
+    "cng",
+    "flüssiggas",
+    "lpg",
+    "sonstige"
+  ],
   "fleet_size_scenarios": {
     "enabled": true,
-    "policy_mode": "baseline",
+    "policy_mode": "baseline_ev_growth",
     "target_method": "linear",
     "changes_percent": {
       "fleet_plus_5": 5.0,

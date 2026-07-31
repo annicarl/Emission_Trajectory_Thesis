@@ -142,7 +142,10 @@ def validate_value(row: pd.Series, value: float, sens: dict):
 def run_fleet(module, config: dict, scenario: str):
     """CALL SITE OF THE EXISTING MODEL (no reimplementation of fleet logic)."""
     cfg = copy.deepcopy(config)
-    cfg["policies"]["scenarios"] = [scenario]
+    if scenario in cfg["policies"].get("bev_target_scenarios", {}):
+        cfg["policies"]["scenarios"] = []
+    else:
+        cfg["policies"]["scenarios"] = [scenario]
     cfg.setdefault("fleet_size_scenarios", {})["enabled"] = False
     return module.run_model(cfg)
 

@@ -45,6 +45,17 @@ def contains_any_pattern(text: object, patterns: list[str]) -> bool:
     return any(str(pattern).lower() in text_lower for pattern in patterns)
 
 
+def exclude_drive_types(df: pd.DataFrame, config: dict) -> pd.DataFrame:
+    """Remove out-of-scope drive types before any model calculations."""
+    patterns = config.get("excluded_drive_patterns", [])
+    if not isinstance(patterns, list):
+        raise ValueError("excluded_drive_patterns must be a list.")
+    if not patterns:
+        return df.copy()
+    excluded = df["Antriebsart"].apply(lambda value: contains_any_pattern(value, patterns))
+    return df.loc[~excluded].copy()
+
+
 def is_ice(drive_type: object, config: dict) -> bool:
     policies = config["policies"]
     ice_match = contains_any_pattern(drive_type, policies["ice_patterns"])
@@ -54,6 +65,118 @@ def is_ice(drive_type: object, config: dict) -> bool:
 
 def is_diesel(drive_type: object, config: dict) -> bool:
     return contains_any_pattern(drive_type, config["policies"]["diesel_patterns"])
+
+
+def bev_target_share(year: float, scenario: str, config: dict) -> float:
+    """Return the linearly interpolated BEV target as a share between zero and one."""
+    target_scenarios = config["policies"].get("bev_target_scenarios", {})
+    if not isinstance(target_scenarios, dict):
+        raise ValueError("bev_target_scenarios must be an object of named target paths.")
+    if scenario not in target_scenarios:
+        raise ValueError(f"No BEV target path configured for scenario {scenario!r}.")
+    raw_targets = target_scenarios[scenario]
+    if not isinstance(raw_targets, dict) or not raw_targets:
+        raise ValueError(f"BEV target scenario {scenario!r} must contain at least one year and target.")
+
+    parsed_targets: dict[float, float] = {}
+    for raw_year, raw_percent in raw_targets.items():
+        try:
+            target_year = float(raw_year)
+            target_percent = float(raw_percent)
+        except (TypeError, ValueError) as exc:
+            raise ValueError(
+                "BEV target years and percentages must be numeric."
+            ) from exc
+        if not np.isfinite(target_year) or not np.isfinite(target_percent):
+            raise ValueError("BEV target years and percentages must be finite.")
+        if target_percent < 0 or target_percent > 100:
+            raise ValueError(
+                f"BEV target for {raw_year} must be between 0 and 100 percent."
+            )
+        if target_year in parsed_targets:
+            raise ValueError(f"Duplicate BEV target year after parsing: {raw_year}.")
+        parsed_targets[target_year] = target_percent
+
+    years = np.array(sorted(parsed_targets), dtype=float)
+    percentages = np.array([parsed_targets[target_year] for target_year in years], dtype=float)
+    return float(np.interp(float(year), years, percentages) / 100)
+
+
+def policy_scenario_names(config: dict) -> list[str]:
+    """Validate and combine fixed policies with named BEV target scenarios."""
+    policies = config["policies"]
+    fixed_scenarios = policies.get("scenarios", [])
+    target_scenarios = policies.get("bev_target_scenarios", {})
+    if not isinstance(fixed_scenarios, list):
+        raise ValueError("policies.scenarios must be a list.")
+    if not isinstance(target_scenarios, dict):
+        raise ValueError("bev_target_scenarios must be an object of named target paths.")
+
+    for name in [*fixed_scenarios, *target_scenarios]:
+        if not isinstance(name, str) or not name.strip() or name != name.strip():
+            raise ValueError("Scenario names must be non-empty strings without surrounding whitespace.")
+    if len(fixed_scenarios) != len(set(fixed_scenarios)):
+        raise ValueError("policies.scenarios contains duplicate scenario names.")
+    collisions = set(fixed_scenarios).intersection(target_scenarios)
+    if collisions:
+        raise ValueError(
+            "BEV target scenario names collide with fixed scenarios: "
+            + ", ".join(sorted(collisions))
+        )
+
+    growth_overlays = {"abwrackpraemie", "diesel_fahrverbot"}.intersection(fixed_scenarios)
+    reference_scenario = policies.get("bev_growth_reference_scenario")
+    if growth_overlays and reference_scenario not in target_scenarios:
+        raise ValueError(
+            "bev_growth_reference_scenario must name a configured BEV target scenario "
+            "when scrappage or diesel-ban policies are enabled."
+        )
+
+    for scenario in target_scenarios:
+        bev_target_share(config["years"]["start_year"], scenario, config)
+    return [*fixed_scenarios, *target_scenarios]
+
+
+def apply_bev_target_distribution(
+    base_distribution: pd.DataFrame,
+    year: float,
+    scenario: str,
+    config: dict,
+    excluded_non_bev_patterns: list[str] | None = None,
+) -> pd.Series:
+    """Allocate a BEV target while preserving 2025 proportions within both groups."""
+    bev_patterns = config["policies"].get("bev_patterns")
+    if not isinstance(bev_patterns, list) or not bev_patterns:
+        raise ValueError("bev_patterns must contain at least one BEV identification pattern.")
+
+    original = pd.to_numeric(base_distribution["anteil_original"], errors="coerce").fillna(0)
+    bev_mask = base_distribution["Antriebsart"].apply(
+        lambda drive_type: contains_any_pattern(drive_type, bev_patterns)
+    )
+    excluded_non_bev_patterns = excluded_non_bev_patterns or []
+    excluded_mask = base_distribution["Antriebsart"].apply(
+        lambda drive_type: contains_any_pattern(drive_type, excluded_non_bev_patterns)
+    )
+    eligible_non_bev_mask = ~bev_mask & ~excluded_mask
+    bev_base_total = safe_sum(original[bev_mask])
+    non_bev_base_total = safe_sum(original[eligible_non_bev_mask])
+    target_share = bev_target_share(year, scenario, config)
+
+    if bev_base_total <= 0 and target_share > 0:
+        raise ValueError("The 2025 new-vehicle distribution contains no matching BEVs.")
+    if non_bev_base_total <= 0 and target_share < 1:
+        raise ValueError("The 2025 new-vehicle distribution contains no non-BEV vehicles.")
+
+    adjusted = pd.Series(0.0, index=base_distribution.index, dtype=float)
+    if target_share > 0:
+        adjusted.loc[bev_mask] = original.loc[bev_mask] / bev_base_total * target_share
+    if target_share < 1:
+        adjusted.loc[eligible_non_bev_mask] = (
+            original.loc[eligible_non_bev_mask]
+            / non_bev_base_total
+            * (1 - target_share)
+        )
+    return adjusted
 
 
 def add_age_bin(df: pd.DataFrame, current_year: int, bin_width: int) -> pd.DataFrame:
@@ -91,6 +214,10 @@ def load_input_data(config: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFr
         ).astype("Int64")
         df["Anzahl"] = pd.to_numeric(df["Anzahl"], errors="coerce")
     nzl_df["Anzahl"] = pd.to_numeric(nzl_df["Anzahl"], errors="coerce")
+
+    abs_df = exclude_drive_types(abs_df, config)
+    bestand_df = exclude_drive_types(bestand_df, config)
+    nzl_df = exclude_drive_types(nzl_df, config)
 
     return abs_df, bestand_df, nzl_df
 
@@ -306,25 +433,24 @@ def adjusted_nzl_distribution(base_distribution: pd.DataFrame, year: int, scenar
     dist["anteil_original"] = pd.to_numeric(dist["anteil_original"], errors="coerce").fillna(0)
     dist["anteil_szenario"] = dist["anteil_original"]
 
-    if scenario == "baseline":
-        pass
-    elif scenario == "verbrenneraus":
-        start = policies["ice_phaseout_start_year"]
-        end = policies["ice_phaseout_year"]
-        if year < start:
-            ice_factor = 1.0
-        elif year >= end:
-            ice_factor = 0.0
-        else:
-            ice_factor = (end - year) / (end - start)
-        dist["anteil_szenario"] = np.where(
-            dist["ist_verbrenner"], dist["anteil_original"] * ice_factor, dist["anteil_original"]
+    if scenario in {"diesel_fahrverbot", "abwrackpraemie"}:
+        reference_scenario = policies["bev_growth_reference_scenario"]
+        excluded_patterns = (
+            policies["diesel_patterns"]
+            if scenario == "diesel_fahrverbot" and year >= policies["diesel_ban_year"]
+            else None
         )
-    elif scenario == "diesel_fahrverbot":
-        if year >= policies["diesel_ban_year"]:
-            dist["anteil_szenario"] = np.where(dist["ist_diesel"], 0, dist["anteil_original"])
-    elif scenario == "abwrackpraemie":
-        pass
+        dist["anteil_szenario"] = apply_bev_target_distribution(
+            dist,
+            year,
+            reference_scenario,
+            config,
+            excluded_non_bev_patterns=excluded_patterns,
+        )
+    elif scenario in policies.get("bev_target_scenarios", {}):
+        dist["anteil_szenario"] = apply_bev_target_distribution(
+            dist, year, scenario, config
+        )
     else:
         raise ValueError(f"Unknown scenario: {scenario}")
 
@@ -349,19 +475,6 @@ def prepare_rates(hazard_pooled_df: pd.DataFrame, reentry_pooled_df: pd.DataFram
     hazard["Altersklasse_Ende"] = pd.to_numeric(hazard["Altersklasse_Ende"], errors="coerce").astype("Int64")
     hazard = hazard.dropna()
 
-    if scenario == "abwrackpraemie":
-        targets = config["policies"]["scrappage_target_patterns"]
-        multiplier = config["policies"]["scrappage_hazard_multiplier"]
-        hazard["scrappage_target"] = hazard["Antriebsart"].apply(lambda x: contains_any_pattern(x, targets))
-        hazard["pooled_hazard_rate"] = np.where(
-            hazard["scrappage_target"],
-            hazard["pooled_hazard_rate"] * multiplier,
-            hazard["pooled_hazard_rate"],
-        )
-        hazard["pooled_hazard_rate"] = hazard["pooled_hazard_rate"].clip(
-            lower=0, upper=calibration["max_hazard_rate"]
-        )
-
     reentry = reentry_pooled_df[
         ["Segment", "Antriebsart", "Altersklasse_Start", "Altersklasse_Ende", "pooled_reentry_quote_exits"]
     ].copy()
@@ -372,6 +485,23 @@ def prepare_rates(hazard_pooled_df: pd.DataFrame, reentry_pooled_df: pd.DataFram
     reentry["Altersklasse_Ende"] = pd.to_numeric(reentry["Altersklasse_Ende"], errors="coerce").astype("Int64")
     reentry = reentry.dropna()
     return hazard, reentry
+
+
+def apply_scrappage_policy(hazard_rate: pd.Series, drive_type: pd.Series, year: int, scenario: str, config: dict) -> pd.Series:
+    """Increase hazards for configured drive types in configured destination years."""
+    policies = config["policies"]
+    active_years = {int(active_year) for active_year in policies["scrappage_active_years"]}
+    adjusted = pd.to_numeric(hazard_rate, errors="coerce").fillna(0)
+
+    if scenario != "abwrackpraemie" or year not in active_years:
+        return adjusted
+
+    targets = policies["scrappage_target_patterns"]
+    multiplier = policies["scrappage_hazard_multiplier"]
+    target_mask = drive_type.apply(lambda value: contains_any_pattern(value, targets))
+    return adjusted.where(~target_mask, adjusted * multiplier).clip(
+        lower=0, upper=config["calibration"]["max_hazard_rate"]
+    )
 
 
 def run_policy_scenario(
@@ -468,6 +598,13 @@ def run_policy_scenario(
         )
         projection["pooled_hazard_rate"] = projection["pooled_hazard_rate"].fillna(0).clip(
             lower=0, upper=config["calibration"]["max_hazard_rate"]
+        )
+        projection["pooled_hazard_rate"] = apply_scrappage_policy(
+            projection["pooled_hazard_rate"],
+            projection["Antriebsart"],
+            next_year,
+            scenario,
+            config,
         )
         projection["pooled_reentry_quote_exits"] = projection["pooled_reentry_quote_exits"].fillna(0).clip(
             lower=0, upper=config["calibration"]["max_reentry_rate"]
@@ -597,7 +734,7 @@ def run_model(config: dict) -> dict[str, object]:
         scenario: run_policy_scenario(
             scenario, config, bestand_df, nzl_df, hazard_pooled_df, reentry_pooled_df, fleet_total_df
         )
-        for scenario in config["policies"]["scenarios"]
+        for scenario in policy_scenario_names(config)
     }
 
     fleet_size_outputs = {}
