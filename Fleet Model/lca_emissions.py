@@ -122,27 +122,35 @@ def calculate_emissions(activity: dict[str, pd.DataFrame], lca_wide: pd.DataFram
     prod["emissions_tco2e"] = prod["neue_fahrzeuge"] * prod.get("Vehicle_production", 0).fillna(0)
     parts.append(prod[base_cols])
 
-    # Battery production applies only to newly registered BEVs. The source
-    # factors are kgCO2e/kWh and kWh, hence the division by 1,000 to tCO2e.
-    bev_prod = prod["drivetrain_group"].eq("BEV")
+    # BEVs and hybrids use the BEV battery parameters of their size class.
+    # Hybrids retain their ICE_Petrol mapping for every other LCA parameter.
+    # The factors are kgCO2e/kWh and kWh, hence / 1,000 to tCO2e.
+    battery_vehicle = prod["drivetrain_group"].eq("BEV") | prod["Antriebsart"].eq("Hybrid")
     required_battery_params = ["Battery_production", "Battery_capacity"]
-    missing_columns = [name for name in required_battery_params if name not in prod.columns]
-    if missing_columns and bev_prod.any():
+    missing_columns = [name for name in required_battery_params if name not in lookup.columns]
+    if missing_columns and battery_vehicle.any():
         raise ValueError(f"LCA data lacks BEV battery parameters: {missing_columns}")
-    if bev_prod.any():
-        missing_values = prod.loc[bev_prod, required_battery_params].isna().any(axis=1)
+    if not missing_columns:
+        battery_lookup = (lookup.loc[lookup["drivetrain_group"].eq("BEV"),
+                          ["size_class", *required_battery_params]]
+                          .rename(columns={name: f"bev_{name}" for name in required_battery_params}))
+        prod = prod.merge(battery_lookup, on="size_class", how="left", validate="many_to_one")
+        battery_vehicle = prod["drivetrain_group"].eq("BEV") | prod["Antriebsart"].eq("Hybrid")
+    if battery_vehicle.any() and not missing_columns:
+        bev_battery_params = [f"bev_{name}" for name in required_battery_params]
+        missing_values = prod.loc[battery_vehicle, bev_battery_params].isna().any(axis=1)
         if missing_values.any():
-            examples = (prod.loc[bev_prod & missing_values,
-                        ["drivetrain_group", "size_class"]]
+            examples = (prod.loc[battery_vehicle & missing_values,
+                        ["Antriebsart", "size_class"]]
                         .drop_duplicates().to_dict("records"))
-            raise ValueError(f"Missing battery-production parameters for BEVs: {examples}")
+            raise ValueError(f"Missing BEV battery-production parameters for BEVs/hybrids: {examples}")
 
     battery = prod.copy()
     battery["phase"] = "battery_production"
     battery["emissions_tco2e"] = np.where(
-        bev_prod,
-        battery["neue_fahrzeuge"] * battery["Battery_production"]
-        * battery["Battery_capacity"] / 1_000,
+        battery_vehicle,
+        battery["neue_fahrzeuge"] * battery["bev_Battery_production"]
+        * battery["bev_Battery_capacity"] / 1_000,
         0.0,
     )
     parts.append(battery[base_cols])

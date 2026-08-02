@@ -56,6 +56,12 @@ class BatteryProductionTests(unittest.TestCase):
              "size_class": "Small", "drivetrain_group": "ICE_Petrol", "neue_fahrzeuge": 3},
             {"Jahr": 2026, "Segment": "Minis", "Antriebsart": "Diesel",
              "size_class": "Small", "drivetrain_group": "ICE_Diesel", "neue_fahrzeuge": 4},
+            {"Jahr": 2026, "Segment": "Minis", "Antriebsart": "Hybrid",
+             "size_class": "Small", "drivetrain_group": "ICE_Petrol", "neue_fahrzeuge": 1},
+            {"Jahr": 2026, "Segment": "Kompaktklasse", "Antriebsart": "Hybrid",
+             "size_class": "Medium", "drivetrain_group": "ICE_Petrol", "neue_fahrzeuge": 1},
+            {"Jahr": 2026, "Segment": "SUVs", "Antriebsart": "Hybrid",
+             "size_class": "Large", "drivetrain_group": "ICE_Petrol", "neue_fahrzeuge": 1},
         ]
 
     def calculate(self, lca=None):
@@ -63,7 +69,8 @@ class BatteryProductionTests(unittest.TestCase):
 
     def test_battery_emissions_vary_by_bev_size_and_vehicle_count(self):
         result = self.calculate()
-        battery = result[result["phase"].eq("battery_production")]
+        battery = result[result["phase"].eq("battery_production")
+                         & result["drivetrain_group"].eq("BEV")]
         by_size = battery.groupby("size_class")["emissions_tco2e"].sum()
         self.assertAlmostEqual(by_size["Small"], 4.86)
         self.assertAlmostEqual(by_size["Medium"], 12.96)
@@ -71,8 +78,46 @@ class BatteryProductionTests(unittest.TestCase):
 
     def test_combustion_vehicles_have_no_battery_emissions(self):
         battery = self.calculate().query("phase == 'battery_production'")
-        combustion = battery[~battery["drivetrain_group"].eq("BEV")]
+        combustion = battery[~battery["Antriebsart"].isin(["Elektro (BEV)", "Hybrid"])]
         self.assertTrue((combustion["emissions_tco2e"] == 0).all())
+
+    def test_hybrids_use_bev_battery_parameters_by_size(self):
+        battery = self.calculate().query(
+            "phase == 'battery_production' and Antriebsart == 'Hybrid'"
+        )
+        by_size = battery.set_index("size_class")["emissions_tco2e"]
+        self.assertAlmostEqual(by_size["Small"], 4.86)
+        self.assertAlmostEqual(by_size["Medium"], 6.48)
+        self.assertAlmostEqual(by_size["Large"], 8.10)
+
+    def test_hybrid_keeps_petrol_vehicle_production_parameters(self):
+        production = self.calculate().query(
+            "phase == 'vehicle_production' and Antriebsart == 'Hybrid'"
+        )
+        by_size = production.set_index("size_class")["emissions_tco2e"]
+        self.assertAlmostEqual(by_size["Small"], 5.5)
+        self.assertAlmostEqual(by_size["Medium"], 6.7)
+        self.assertAlmostEqual(by_size["Large"], 7.8)
+
+    def test_hybrid_keeps_petrol_use_and_energy_supply_parameters(self):
+        run_activity = activity(self.rows)
+        run_activity["stock"] = pd.DataFrame([
+            {"Jahr": 2026, "Segment": "Minis", "Antriebsart": "Benzin",
+             "size_class": "Small", "drivetrain_group": "ICE_Petrol", "finaler_bestand": 1},
+            {"Jahr": 2026, "Segment": "Minis", "Antriebsart": "Hybrid",
+             "size_class": "Small", "drivetrain_group": "ICE_Petrol", "finaler_bestand": 1},
+        ])
+        result = calculate_emissions(run_activity, lca_frame())
+        relevant = result[
+            result["Antriebsart"].isin(["Benzin", "Hybrid"])
+            & result["phase"].isin(["use", "energy_supply"])
+        ]
+        by_phase_drive = relevant.pivot(index="phase", columns="Antriebsart",
+                                        values="emissions_tco2e")
+        self.assertAlmostEqual(by_phase_drive.loc["use", "Hybrid"],
+                               by_phase_drive.loc["use", "Benzin"])
+        self.assertAlmostEqual(by_phase_drive.loc["energy_supply", "Hybrid"],
+                               by_phase_drive.loc["energy_supply", "Benzin"])
 
     def test_summary_reports_combined_production_without_double_counting(self):
         result = self.calculate()
@@ -96,8 +141,16 @@ class BatteryProductionTests(unittest.TestCase):
     def test_missing_bev_battery_parameter_is_rejected(self):
         lca = lca_frame()
         lca.loc[lca["Parameter"].eq("Battery_capacity"), "BEV_small"] = None
-        with self.assertRaisesRegex(ValueError, "Missing battery-production parameters"):
+        with self.assertRaisesRegex(ValueError, "Missing BEV battery-production parameters"):
             self.calculate(lca)
+
+    def test_missing_bev_battery_parameter_is_rejected_for_hybrid(self):
+        lca = lca_frame()
+        lca.loc[lca["Parameter"].eq("Battery_production"), "BEV_medium"] = None
+        rows = [row for row in self.rows if row["Antriebsart"] == "Hybrid"
+                and row["size_class"] == "Medium"]
+        with self.assertRaisesRegex(ValueError, "BEVs/hybrids"):
+            calculate_emissions(activity(rows), lca)
 
 
 if __name__ == "__main__":

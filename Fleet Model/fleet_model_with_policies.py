@@ -614,9 +614,19 @@ def run_policy_scenario(
         projection["bestand_vor_neuen_fahrzeugen"] = (
             projection["bestand"] - projection["exits"] + projection["reentries"]
         ).clip(lower=0)
+        projection["policy_forced_exits"] = 0.0
 
         if scenario == "diesel_fahrverbot" and next_year >= config["policies"]["diesel_ban_year"]:
             projection["ist_diesel"] = projection["Antriebsart"].apply(lambda x: is_diesel(x, config))
+            # The diesel ban removes the diesel stock remaining after regular
+            # hazard-based exits and reentries. Record these forced removals as
+            # exits as well, so downstream end-of-life accounting includes them.
+            projection["policy_forced_exits"] = projection[
+                "bestand_vor_neuen_fahrzeugen"
+            ].where(projection["ist_diesel"], 0.0)
+            projection["exits"] = (
+                projection["exits"] + projection["policy_forced_exits"]
+            )
             projection["bestand_vor_neuen_fahrzeugen"] = np.where(
                 projection["ist_diesel"], 0, projection["bestand_vor_neuen_fahrzeugen"]
             )
@@ -648,7 +658,14 @@ def run_policy_scenario(
 
         by_year[next_year] = {
             "abgaenge": projection.assign(Berichtsjahr=next_year)[
-                ["Berichtsjahr", "Segment", "Antriebsart", "Jahr der Erstzulassung", "exits"]
+                [
+                    "Berichtsjahr",
+                    "Segment",
+                    "Antriebsart",
+                    "Jahr der Erstzulassung",
+                    "exits",
+                    "policy_forced_exits",
+                ]
             ].copy(),
             "rueckkehrer": projection.assign(Berichtsjahr=next_year)[
                 ["Berichtsjahr", "Segment", "Antriebsart", "Jahr der Erstzulassung", "reentries"]
