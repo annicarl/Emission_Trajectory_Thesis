@@ -1,6 +1,10 @@
 {
-  "data_dir": "../Data",
-  "results_dir": "Results",
+  "name": "baseline",
+  "pipeline": {
+    "output_dir": "../outputs/pipeline"
+  },
+  "data_dir": "../data",
+  "results_dir": "../outputs/fleet_model",
   "input_files": {
     "abs": "321-140-17133-26-ABS.csv",
     "bestand": "321-140-17133-26-Bestand.csv",
@@ -107,6 +111,19 @@
     }
   },
   "ghg": {
+    "fleet_run": "baseline__2026-08-27_235529",
+    "fleet_outputs_dir": "../outputs/fleet_model",
+    "output_dir": "../outputs/ghg_model",
+    "emission_parameters_file": "../data/LCA_Emissions_Python.csv",
+    "annual_km_per_vehicle": 12500,
+    "analysis_start_year": 2025,
+    "analysis_end_year": 2050,
+    "year_offsets": {
+      "production": -1,
+      "use": 0,
+      "end_of_life": 1
+    },
+    "maintenance_parameter": "Maintenance",
     "electricity_mix_gco2e_per_kwh": {
       "2025": 300.6,
       "2026": 266.8,
