@@ -1,0 +1,156 @@
+{
+  "name": "dieselban_2030",
+  "pipeline": {
+    "output_dir": "../outputs/pipeline"
+  },
+  "data_dir": "../data",
+  "results_dir": "../outputs/fleet_model",
+  "input_files": {
+    "abs": "321-140-17133-26-ABS.csv",
+    "bestand": "321-140-17133-26-Bestand.csv",
+    "nzl": "321-140-17133-26-NZL.csv"
+  },
+  "csv": {
+    "separator": ";",
+    "encoding": "latin1"
+  },
+  "years": {
+    "start_year": 2025,
+    "end_year": 2051
+  },
+  "fleet_target": {
+    "percent_change": 0,
+    "method": "growth"
+  },
+  "calibration": {
+    "years": 5,
+    "age_bin_width": 5,
+    "max_reentry_age": 24,
+    "max_hazard_rate": 1.0,
+    "max_reentry_rate": 0.9
+  },
+  "policies": {
+    "scenarios": [
+      "diesel_fahrverbot",
+      "abwrackpraemie"
+    ],
+    "bev_growth_reference_scenario": "baseline_ev_growth",
+    "diesel_ban_year": 2030,
+    "scrappage_hazard_multiplier": 5.0,
+    "scrappage_active_years": [
+      2028,
+      2029,
+      2030
+    ],
+    "scrappage_target_patterns": [
+      "diesel",
+      "benzin"
+    ],
+    "bev_patterns": [
+      "elektro (bev)"
+    ],
+    "bev_target_scenarios": {
+      "verbrenneraus_2035": {
+        "2025": 19.159291,
+        "2035": 100.0
+      },
+      "verbrenneraus_light": {
+        "2025": 19.159291,
+        "2035": 90.0
+      },
+      "baseline_ev_growth": {
+        "2025": 19.159291,
+        "2030": 31.631714,
+        "2035": 44.104136,
+        "2040": 56.576559,
+        "2045": 69.048981,
+        "2050": 81.521404
+      },
+      "stronger_ev_growth": {
+        "2025": 19.159291,
+        "2030": 34.74982,
+        "2035": 50.340348,
+        "2040": 65.930876,
+        "2045": 81.521404,
+        "2050": 97.111932
+      }
+    },
+    "ice_patterns": [
+      "benzin",
+      "diesel",
+      "hybrid",
+      "plug",
+      "phev",
+      "verbren"
+    ],
+    "non_ice_patterns": [
+      "elekt",
+      "bev",
+      "fcev",
+      "wasserstoff"
+    ],
+    "diesel_patterns": [
+      "diesel"
+    ]
+  },
+  "excluded_drive_patterns": [
+    "erdgas",
+    "cng",
+    "flüssiggas",
+    "lpg",
+    "sonstige"
+  ],
+  "fleet_size_scenarios": {
+    "enabled": true,
+    "policy_mode": "baseline_ev_growth",
+    "target_method": "linear",
+    "changes_percent": {
+      "fleet_plus_5": 5.0,
+      "fleet_plus_10": 10.0,
+      "fleet_plus_15": 15.0
+    }
+  },
+  "ghg": {
+    "fleet_run": "baseline__2026-08-27_235529",
+    "fleet_outputs_dir": "../outputs/fleet_model",
+    "output_dir": "../outputs/ghg_model",
+    "emission_parameters_file": "../data/LCA_Emissions_Python.csv",
+    "annual_km_per_vehicle": 12500,
+    "analysis_start_year": 2025,
+    "analysis_end_year": 2050,
+    "year_offsets": {
+      "production": -1,
+      "use": 0,
+      "end_of_life": 1
+    },
+    "maintenance_parameter": "Maintenance",
+    "electricity_mix_gco2e_per_kwh": {
+      "2025": 300.6,
+      "2026": 266.8,
+      "2027": 232.9,
+      "2028": 199.1,
+      "2029": 165.2,
+      "2030": 131.4,
+      "2031": 121.0,
+      "2032": 110.6,
+      "2033": 100.2,
+      "2034": 89.8,
+      "2035": 79.4,
+      "2036": 75.0,
+      "2037": 70.6,
+      "2038": 66.3,
+      "2039": 61.9,
+      "2040": 57.5,
+      "2041": 56.8,
+      "2042": 56.2,
+      "2043": 55.5,
+      "2044": 54.9,
+      "2045": 54.2,
+      "2046": 54.9,
+      "2047": 55.7,
+      "2048": 56.4,
+      "2049": 57.2,
+      "2050": 57.9
+    }
+  }
+}
